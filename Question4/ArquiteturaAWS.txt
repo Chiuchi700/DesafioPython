@@ -12,3 +12,6 @@ sendo responsável por salvar os dados processados pelo Spark EMR em uma estrutu
 
 Uma vez com os dados processados, tratados e armazenados, a conexão com o banco Redshift serve para armazenamento dos dados estruturados e 
 semiestruturados para futuras análises.
+
+Toda a arquitetura é monitorada pelo CloudWatch, que fornece dados de monitoramento no formato de logs, métricas e eventos, possibilitando
+uma visão unificada da integridade operacional e visibilidade completa dos recursos, aplicações e serviços.
