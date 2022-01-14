@@ -1,0 +1,7 @@
+O serviço de API Gateway da AWS é um serviço gerenciado e sem servidor que administra o recebimento e processamento dos dados. Na arquitetura, é responsável por consumir os dados no formato "json" gerados pela API de notas fiscais.
+
+Na camada "RAW DATA", o AWS Lambda é um serviço de computação sem servidor que executa aplicações ou serviços backend, sendo assim, os dados são consumidos pelo AWS Lambda e armazenados em um bando de dados DynamoDB. O DynamoDB foi escolhido pelo fato de ser um armazenamento chave-valor NoSQL e sem servidor, proporcionando a facilidade para armazenar os arquivos "json" gerados pela API e será utilizado para realizar validações dos dados de origem, garantindo a consistência e veracidade dos dados.
+
+Na camada de "WORK DATA", o Spark EMR gerenciará uma aplicação Spark e irá processar os dados armazenados no DynamoDB com rapidez e eficiência, salvando os dados no Amazon S3. O Amazon S3 é um serviço de armazenamento escalável, seguro e performático, mais conhecido como "Data Lake", sendo responsável por salvar os dados processados pelo Spark EMR em uma estrutura chamada de "bucket" (estrutura de pasta).
+
+Uma vez com os dados processados, tratados e armazenados, a conexão com o banco Redshift serve para armazenamento dos dados estruturados e semiestruturados para futuras análises.
